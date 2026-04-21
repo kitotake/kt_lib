@@ -159,6 +159,6 @@ type inputDialog = (
     allowCancel?: boolean;
   }
 ) => Promise<Array<string | number | boolean> | undefined>;
-export const inputDialog: inputDialog = async (heading, rows, options) => await exports.ox_lib.inputDialog(heading, rows, options);
+export const inputDialog: inputDialog = async (heading, rows, options) => await exports.kt_lib.inputDialog(heading, rows, options);
 
-export const closeInputDialog = () => exports.ox_lib.closeInputDialog();
+export const closeInputDialog = () => exports.kt_lib.closeInputDialog();

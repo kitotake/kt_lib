@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -13,7 +13,7 @@ local _registerCommand = RegisterCommand
 ---@param restricted boolean?
 function RegisterCommand(commandName, callback, restricted)
 	_registerCommand(commandName, function(source, args, raw)
-		if not restricted or lib.callback.await('ox_lib:checkPlayerAce', 100, ('command.%s'):format(commandName)) then
+		if not restricted or lib.callback.await('kt_lib:checkPlayerAce', 100, ('command.%s'):format(commandName)) then
 			callback(source, args, raw)
 		end
 	end)

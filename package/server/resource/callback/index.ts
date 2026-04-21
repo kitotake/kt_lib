@@ -3,7 +3,7 @@ import { cache } from '../cache';
 const pendingCallbacks: Record<string, (...args: any[]) => void> = {};
 const callbackTimeout = GetConvarInt('ox:callbackTimeout', 300000);
 
-onNet(`__ox_cb_${cache.resource}`, (key: string, ...args: any) => {
+onNet(`__kt_cb_${cache.resource}`, (key: string, ...args: any) => {
   const resolve = pendingCallbacks[key];
 
   if (!resolve) return;
@@ -24,8 +24,8 @@ export function triggerClientCallback<T = unknown>(
     key = `${eventName}:${Math.floor(Math.random() * (100000 + 1))}:${playerId}`;
   } while (pendingCallbacks[key]);
 
-  emitNet(`ox_lib:validateCallback`, playerId, eventName, cache.resource, key);
-  emitNet(`__ox_cb_${eventName}`, playerId, cache.resource, key, ...args);
+  emitNet(`kt_lib:validateCallback`, playerId, eventName, cache.resource, key);
+  emitNet(`__kt_cb_${eventName}`, playerId, cache.resource, key, ...args);
 
   return new Promise<T>((resolve, reject) => {
     pendingCallbacks[key] = (args) => {
@@ -39,9 +39,9 @@ export function triggerClientCallback<T = unknown>(
 }
 
 export function onClientCallback(eventName: string, cb: (playerId: number, ...args: any[]) => any) {
-  exports.ox_lib.setValidCallback(eventName, true)
+  exports.kt_lib.setValidCallback(eventName, true)
 
-  onNet(`__ox_cb_${eventName}`, async (resource: string, key: string, ...args: any[]) => {
+  onNet(`__kt_cb_${eventName}`, async (resource: string, key: string, ...args: any[]) => {
     const src = source;
     let response: any;
 
@@ -52,6 +52,6 @@ export function onClientCallback(eventName: string, cb: (playerId: number, ...ar
       console.log(`^3${e.stack}^0`);
     }
 
-    emitNet(`__ox_cb_${resource}`, src, key, response);
+    emitNet(`__kt_cb_${resource}`, src, key, response);
   });
 }

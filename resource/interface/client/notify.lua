@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -67,5 +67,5 @@ function lib.defaultNotify(data)
     return lib.notify(data --[[@as NotifyProps]])
 end
 
-RegisterNetEvent('ox_lib:notify', lib.notify)
-RegisterNetEvent('ox_lib:defaultNotify', lib.defaultNotify)
+RegisterNetEvent('kt_lib:notify', lib.notify)
+RegisterNetEvent('kt_lib:defaultNotify', lib.defaultNotify)

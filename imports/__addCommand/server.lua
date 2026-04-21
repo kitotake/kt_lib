@@ -2,7 +2,7 @@
 ---@todo convert input and call standard function?
 
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 

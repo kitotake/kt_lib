@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -43,4 +43,4 @@ function lib.versionCheck(repository)
 	end)
 end
 
-lib.versionCheck('overextended/ox_lib')
+lib.versionCheck('kitotake/kt_lib')

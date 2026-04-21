@@ -11,4 +11,4 @@ table.sort(locales, function(a, b)
     return a.label < b.label
 end)
 
-GlobalState['ox_lib:locales'] = locales
+GlobalState['kt_lib:locales'] = locales

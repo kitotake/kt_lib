@@ -1,6 +1,6 @@
 ---@meta
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -12,19 +12,19 @@ if not _VERSION:find('5.4') then
 end
 
 local resourceName = GetCurrentResourceName()
-local ox_lib = 'ox_lib'
+local kt_lib = 'kt_lib'
 
--- Some people have decided to load this file as part of ox_lib's fxmanifest?
-if resourceName == ox_lib then return end
+-- Some people have decided to load this file as part of kt_lib's fxmanifest?
+if resourceName == kt_lib then return end
 
-if lib and lib.name == ox_lib then
-    error(("Cannot load ox_lib more than once.\n\tRemove any duplicate entries from '@%s/fxmanifest.lua'"):format(resourceName))
+if lib and lib.name == kt_lib then
+    error(("Cannot load kt_lib more than once.\n\tRemove any duplicate entries from '@%s/fxmanifest.lua'"):format(resourceName))
 end
 
-local export = exports[ox_lib]
+local export = exports[kt_lib]
 
-if GetResourceState(ox_lib) ~= 'started' then
-    error('^1ox_lib must be started before this resource.^0', 0)
+if GetResourceState(kt_lib) ~= 'started' then
+    error('^1kt_lib must be started before this resource.^0', 0)
 end
 
 local status = export.hasLoaded()
@@ -45,21 +45,21 @@ function noop() end
 
 local function loadModule(self, module)
     local dir = ('imports/%s'):format(module)
-    local chunk = LoadResourceFile(ox_lib, ('%s/%s.lua'):format(dir, context))
-    local shared = LoadResourceFile(ox_lib, ('%s/shared.lua'):format(dir))
+    local chunk = LoadResourceFile(kt_lib, ('%s/%s.lua'):format(dir, context))
+    local shared = LoadResourceFile(kt_lib, ('%s/shared.lua'):format(dir))
 
     if shared then
         chunk = (chunk and ('%s\n%s'):format(shared, chunk)) or shared
     end
 
     if chunk then
-        local fn, err = load(chunk, ('@@ox_lib/imports/%s/%s.lua'):format(module, context))
+        local fn, err = load(chunk, ('@@kt_lib/imports/%s/%s.lua'):format(module, context))
 
         if not fn or err then
             if shared then
-                lib.print.warn(("An error occurred when importing '@ox_lib/imports/%s'.\nThis is likely caused by improperly updating ox_lib.\n%s'")
+                lib.print.warn(("An error occurred when importing '@kt_lib/imports/%s'.\nThis is likely caused by improperly updating kt_lib.\n%s'")
                     :format(module, err))
-                fn, err = load(shared, ('@@ox_lib/imports/%s/shared.lua'):format(module))
+                fn, err = load(shared, ('@@kt_lib/imports/%s/shared.lua'):format(module))
             end
 
             if not fn or err then
@@ -101,7 +101,7 @@ local function call(self, index, ...)
 end
 
 local lib = setmetatable({
-    name = ox_lib,
+    name = kt_lib,
     context = context,
 }, {
     __index = call,
@@ -183,7 +183,7 @@ local cache = setmetatable({ game = GetGameName(), resource = resourceName }, {
     __index = function(self, key)
         cacheEvents[key] = {}
 
-        AddEventHandler(('ox_lib:cache:%s'):format(key), function(value)
+        AddEventHandler(('kt_lib:cache:%s'):format(key), function(value)
             local oldValue = self[key]
             local events = cacheEvents[key]
 
@@ -226,7 +226,7 @@ _ENV.lib = lib
 _ENV.cache = cache
 _ENV.require = lib.require
 
-local notifyEvent = ('__ox_notify_%s'):format(cache.resource)
+local notifyEvent = ('__kt_notify_%s'):format(cache.resource)
 
 if context == 'client' then
     RegisterNetEvent(notifyEvent, function(data)
@@ -286,8 +286,8 @@ else
     end
 end
 
-for i = 1, GetNumResourceMetadata(cache.resource, 'ox_lib') do
-    local name = GetResourceMetadata(cache.resource, 'ox_lib', i - 1)
+for i = 1, GetNumResourceMetadata(cache.resource, 'kt_lib') do
+    local name = GetResourceMetadata(cache.resource, 'kt_lib', i - 1)
 
     if not rawget(lib, name) then
         local module = loadModule(lib, name)

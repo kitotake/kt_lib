@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -97,7 +97,7 @@ if cache.game == 'redm' then return end
 
 ---@deprecated
 ---Not recommended. Entity owners can change rapidly and sporadically.
-RegisterNetEvent('ox_lib:setVehicleProperties', function(netid, data)
+RegisterNetEvent('kt_lib:setVehicleProperties', function(netid, data)
     local timeout = 100
     while not NetworkDoesEntityExistWithNetworkId(netid) and timeout > 0 do
         Wait(0)
@@ -108,7 +108,7 @@ RegisterNetEvent('ox_lib:setVehicleProperties', function(netid, data)
     end
 end)
 
-AddStateBagChangeHandler('ox_lib:setVehicleProperties', '', function(bagName, _, value)
+AddStateBagChangeHandler('kt_lib:setVehicleProperties', '', function(bagName, _, value)
     if not value or not GetEntityFromStateBagName then return end
 
     while NetworkIsInTutorialSession() do Wait(0) end
@@ -128,7 +128,7 @@ AddStateBagChangeHandler('ox_lib:setVehicleProperties', '', function(bagName, _,
     -- weird sync/ownership/shitfuckery when setting props on server-side vehicles
     if NetworkGetEntityOwner(entity) == cache.playerId then
         lib.setVehicleProperties(entity, value)
-        Entity(entity).state:set('ox_lib:setVehicleProperties', nil, true)
+        Entity(entity).state:set('kt_lib:setVehicleProperties', nil, true)
     end
 end)
 

@@ -1,4 +1,4 @@
--- Some users have locale set from ox_lib v2
+-- Some users have locale set from kt_lib v2
 if GetResourceKvpInt('reset_locale') ~= 1 then
     DeleteResourceKvp('locale')
     SetResourceKvpInt('reset_locale', 1)
@@ -52,7 +52,7 @@ local function set(key, value)
     return true
 end
 
-RegisterCommand('ox_lib', function()
+RegisterCommand('kt_lib', function()
     local inputSettings = {
         {
             type = 'checkbox',
@@ -85,7 +85,7 @@ RegisterCommand('ox_lib', function()
                 label = locale('ui.settings.locale'),
                 searchable = true,
                 description = locale('ui.settings.locale_description', settings.locale),
-                options = GlobalState['ox_lib:locales'],
+                options = GlobalState['kt_lib:locales'],
                 default = settings.locale,
                 required = true,
                 icon = 'book',

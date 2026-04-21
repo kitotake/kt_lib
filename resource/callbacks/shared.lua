@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -50,9 +50,9 @@ function lib.isCallbackValid(callbackName)
     return registeredCallbacks[callbackName] == GetInvokingResource() or cache.resource
 end
 
-local cbEvent = '__ox_cb_%s'
+local cbEvent = '__kt_cb_%s'
 
-RegisterNetEvent('ox_lib:validateCallback', function(callbackName, invokingResource, key)
+RegisterNetEvent('kt_lib:validateCallback', function(callbackName, invokingResource, key)
     if registeredCallbacks[callbackName] then return end
 
     local event = cbEvent:format(invokingResource)

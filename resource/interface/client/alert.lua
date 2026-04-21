@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -69,4 +69,4 @@ RegisterNUICallback('closeAlert', function(data, cb)
     promise:resolve(data)
 end)
 
-RegisterNetEvent('ox_lib:alertDialog', lib.alertDialog)
+RegisterNetEvent('kt_lib:alertDialog', lib.alertDialog)

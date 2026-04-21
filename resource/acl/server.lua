@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -46,6 +46,6 @@ function lib.removePrincipal(child, parent)
 	ExecuteCommand(('remove_principal %s %s'):format(child, parent))
 end
 
-lib.callback.register('ox_lib:checkPlayerAce', function(source, command)
+lib.callback.register('kt_lib:checkPlayerAce', function(source, command)
     return IsPlayerAceAllowed(source, command)
 end)

@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -305,7 +305,7 @@ function lib.disableRadial(state)
 end
 
 lib.addKeybind({
-    name = 'ox_lib-radial',
+    name = 'kt_lib-radial',
     description = locale('open_radial_menu'),
     defaultKey = 'z',
     onPressed = function()

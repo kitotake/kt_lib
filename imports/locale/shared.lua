@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -59,7 +59,7 @@ end
 
 local table = lib.table
 
----Loads the ox_lib locale module. Prefer using fxmanifest instead (see [docs](https://overextended.dev/ox_lib#usage)).
+---Loads the kt_lib locale module. Prefer using fxmanifest instead (see [docs](https://kitotake.dev/kt_lib#usage)).
 ---@param key? string
 function lib.locale(key)
     local lang = key or lib.getLocaleKey()
@@ -115,7 +115,7 @@ exports('getLocale', function(key)
     return dict[key]
 end)
 
-AddEventHandler('ox_lib:setLocale', function(key)
+AddEventHandler('kt_lib:setLocale', function(key)
     lib.locale(key)
 end)
 

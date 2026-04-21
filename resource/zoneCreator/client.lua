@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -83,7 +83,7 @@ local function closeCreator(cancel)
 
         format = input[2]
 
-		TriggerServerEvent('ox_lib:saveZone', {
+		TriggerServerEvent('kt_lib:saveZone', {
 			zoneType = zoneType,
 			name = input[1] or 'none',
 			format = format,

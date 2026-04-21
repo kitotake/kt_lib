@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -19,7 +19,7 @@ function lib.getLocaleKey() return settings.locale end
 
 ---@param key string
 function lib.setLocale(key)
-    TriggerEvent('ox_lib:setLocale', key)
+    TriggerEvent('kt_lib:setLocale', key)
     SendNUIMessage({
         action = 'setLocale',
         data = loadLocaleFile(key)

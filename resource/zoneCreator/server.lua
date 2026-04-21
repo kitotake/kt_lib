@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -38,7 +38,7 @@ local parse = {
 			}
 		elseif data.format == 'target' then
 			pattern = {
-				'exports.ox_target:addPolyZone({\n',
+				'exports.kt_target:addPolyZone({\n',
 				('\tname = "%s",\n'):format(data.name),
 				'\tpoints = {\n',
 				('%s\t},\n'):format(table.concat(points)),
@@ -87,7 +87,7 @@ local parse = {
 			}
 		elseif data.format == 'target' then
 			pattern = {
-				'exports.ox_target:addBoxZone({\n',
+				'exports.kt_target:addBoxZone({\n',
 				('\tname = "%s",\n'):format(data.name),
 				('\tcoords = vec3(%s, %s, %s),\n'):format(data.xCoord, data.yCoord, data.zCoord),
 				('\tsize = vec3(%s, %s, %s),\n'):format(data.width, data.length, data.height),
@@ -118,7 +118,7 @@ local parse = {
 			}
 		elseif data.format == 'target' then
 			pattern = {
-				'exports.ox_target:addSphereZone({\n',
+				'exports.kt_target:addSphereZone({\n',
 				('\tname = "%s",\n'):format(data.name),
 				('\tcoords = vec3(%s, %s, %s),\n'):format(data.xCoord, data.yCoord, data.zCoord),
 				('\tradius = %s,\n'):format(data.height),
@@ -130,7 +130,7 @@ local parse = {
 	end,
 }
 
-RegisterNetEvent('ox_lib:saveZone', function(data)
+RegisterNetEvent('kt_lib:saveZone', function(data)
     if not source or not IsPlayerAceAllowed(source, 'command') then return end
     local output = (LoadResourceFile(cache.resource, 'created_zones.lua') or '') .. parse[data.zoneType](data)
     SaveResourceFile(cache.resource, 'created_zones.lua', output, -1)

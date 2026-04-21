@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -101,7 +101,7 @@ if service == 'fivemanage' then
         local headers = {
             ['Content-Type'] = 'application/json',
             ['Authorization'] = key,
-            ['User-Agent'] = 'ox_lib'
+            ['User-Agent'] = 'kt_lib'
         }
 
         function lib.logger(source, event, message, ...)

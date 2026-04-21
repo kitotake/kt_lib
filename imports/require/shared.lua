@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -40,7 +40,7 @@ local function getModuleInfo(modName)
 
         resource = src:match('^@@([^/]+)/.+')
 
-        if resource and not src:find('^@@ox_lib/imports/require') then
+        if resource and not src:find('^@@kt_lib/imports/require') then
             return resource, modName
         end
 

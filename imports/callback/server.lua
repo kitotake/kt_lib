@@ -1,5 +1,5 @@
 --[[
-    https://github.com/overextended/ox_lib
+    https://github.com/kitotake/kt_lib
 
     This file is licensed under LGPL-3.0 or higher <https://www.gnu.org/licenses/lgpl-3.0.en.html>
 
@@ -7,7 +7,7 @@
 ]]
 
 local pendingCallbacks = {}
-local cbEvent = '__ox_cb_%s'
+local cbEvent = '__kt_cb_%s'
 local callbackTimeout = GetConvarInt('ox:callbackTimeout', 300000)
 
 RegisterNetEvent(cbEvent:format(cache.resource), function(key, ...)
@@ -35,7 +35,7 @@ local function triggerClientCallback(_, event, playerId, cb, ...)
         key = ('%s:%s:%s'):format(event, math.random(0, 100000), playerId)
     until not pendingCallbacks[key]
 
-    TriggerClientEvent('ox_lib:validateCallback', playerId, event, cache.resource, key)
+    TriggerClientEvent('kt_lib:validateCallback', playerId, event, cache.resource, key)
     TriggerClientEvent(cbEvent:format(event), playerId, cache.resource, key, ...)
 
     ---@type promise | false

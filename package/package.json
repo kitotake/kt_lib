@@ -1,8 +1,8 @@
 {
-  "name": "@overextended/ox_lib",
-  "author": "Overextended",
+  "name": "@kitotake/kt_lib",
+  "author": "kitotake",
   "version": "1.0.0",
-  "description": "JS/TS wrapper for ox_lib exports",
+  "description": "JS/TS wrapper for kt_lib exports",
   "main": "./shared/index.js",
   "types": "./shared/index.d.ts",
   "sideEffects": ["./shared/resource/locale/index.js"],
@@ -12,16 +12,16 @@
   },
   "keywords": [
     "fivem",
-    "ox_lib",
+    "kt_lib",
     "ox",
-    "overextended"
+    "kitotake"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/overextended/ox_lib.git"
+    "url": "git+https://github.com/kitotake/kt_lib.git"
   },
   "bugs": {
-    "url": "https://github.com/overextended/ox_lib/issues"
+    "url": "https://github.com/kitotake/kt_lib/issues"
   },
   "license": "LGPL-3.0",
   "dependencies": {
