@@ -8,7 +8,7 @@
 
 -- Add additional functions to the standard table library
 
----@class oxtable : tablelib
+---@class kttable : tablelib
 lib.table = table
 local pairs = pairs
 
