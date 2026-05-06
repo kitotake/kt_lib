@@ -22,8 +22,10 @@ local levelPrefixes = {
     '^4[VERBOSE]',
     '^6[DEBUG]',
 }
-local convarGlobal = 'ox:printlevel'
-local convarResource = 'ox:printlevel:' .. cache.resource
+
+local convarGlobal = 'kt:printlevel'
+local convarResource = 'kt:printlevel:' .. cache.resource
+
 local function getPrintLevelFromConvar()
     return printLevel[GetConvar(convarResource, GetConvar(convarGlobal, 'info'))]
 end
@@ -35,8 +37,8 @@ local function handleException(reason, value)
 end
 local jsonOptions = { sort_keys = true, indent = true, exception = handleException }
 
----Prints to console conditionally based on what ox:printlevel is.
----Any print with a level more severe will also print. If ox:printlevel is info, then warn and error prints will appear as well, but debug prints will not.
+---Prints to console conditionally based on what kt:printlevel is.
+---Any print with a level more severe will also print. If kt:printlevel is info, then warn and error prints will appear as well, but debug prints will not.
 ---@param level PrintLevel
 ---@param ... any
 local function libPrint(level, ...)
@@ -62,7 +64,7 @@ lib.print = {
 
 -- Update the print level when the convar changes
 if (AddConvarChangeListener) then
-    AddConvarChangeListener('ox:printlevel*', function(convarName, reserved)
+    AddConvarChangeListener('kt:printlevel*', function(convarName, reserved)
         if (convarName ~= convarResource and convarName ~= convarGlobal) then return end
         resourcePrintLevel = getPrintLevelFromConvar()
     end)

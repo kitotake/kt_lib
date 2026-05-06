@@ -1,7 +1,7 @@
 import { cache } from '../cache';
 
 const pendingCallbacks: Record<string, (...args: any[]) => void> = {};
-const callbackTimeout = GetConvarInt('ox:callbackTimeout', 300000);
+const callbackTimeout = GetConvarInt('kt:callbackTimeout', 300000);
 
 onNet(`__kt_cb_${cache.resource}`, (key: string, ...args: any) => {
   const resolve = pendingCallbacks[key];

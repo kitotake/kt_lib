@@ -6,7 +6,7 @@
     Copyright © 2025 Linden <https://github.com/thelindat>
 ]]
 
-local service = GetConvar('ox:logger', 'datadog')
+local service = GetConvar('kt:logger', 'datadog')
 local buffer
 local bufferSize = 0
 
@@ -23,7 +23,7 @@ local function removeColorCodes(str)
     return str
 end
 
-local hostname = removeColorCodes(GetConvar('ox:logger:hostname', GetConvar('sv_projectName', 'fxserver')))
+local hostname = removeColorCodes(GetConvar('kt:logger:hostname', GetConvar('sv_projectName', 'fxserver')))
 
 local b = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
 

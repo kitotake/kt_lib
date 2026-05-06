@@ -8,7 +8,7 @@
 
 local pendingCallbacks = {}
 local cbEvent = '__kt_cb_%s'
-local callbackTimeout = GetConvarInt('ox:callbackTimeout', 300000)
+local callbackTimeout = GetConvarInt('kt:callbackTimeout', 300000)
 
 RegisterNetEvent(cbEvent:format(cache.resource), function(key, ...)
     local cb = pendingCallbacks[key]
